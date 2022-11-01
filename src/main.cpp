@@ -196,9 +196,13 @@ std::vector<std::pair<int, float>> calcularVecinos(std::vector<std::vector<char>
   std::vector<float> userSimilitudes2 = userSimilitudes;
   std::vector<float> similitudesOrdenadas = userSimilitudes;
 
-  // Escogemos los numVecinos con mayor afinidad y trabajamos sobre ellos. 
-  // Estos son los que tienen los mayores valores
+  // Escogemos los numVecinos con mayor afinidad y trabajamos sobre ellos.
+  // Para Pearson y Distancia Coseno ordenamos de mayor a menor.
   std::sort(similitudesOrdenadas.begin(), similitudesOrdenadas.end(), std::greater<float>());
+  if (metodo == "Euclidea") {
+    // Para la distancia Euclídea ordenamos de menor a mayor.
+    std::sort(similitudesOrdenadas.begin(), similitudesOrdenadas.end(), std::less<float>());
+  }
 
   for (int i = 0; i < similitudesOrdenadas.size(); i++) {
     if (vecinosCoincidentes.size() >= numVecinos) break; // Si llegamos al número de vecinos, paramos de añadir

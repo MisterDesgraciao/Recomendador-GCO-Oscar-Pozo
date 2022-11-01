@@ -114,9 +114,9 @@ El bucle iterativo de la función `ejecutar()` recorre la fila de calificaciones
 Por último, se llama a `prediccionSimple()` o `prediccionDiferenciaMedia()` para calcular el valor a predecir y añadirlo a `matrizFinal`.
 ![](/capturas/ejecutar.png)
 
-La función `calcularVecinos()` lo que hace es seleccionar a los vecinos más afines. Lo primero que hace es ordenar los valores de Similitud de mayor a menos, se queda con los X primeros (número indicado en la ejecución)
+La función `calcularVecinos()` lo que hace es seleccionar a los vecinos más afines. Lo primero que hace es ordenar los valores de Similitud de mayor a menor afinidad, es decir, para los valores de *correlación de Pearson* y *distancia Coseno* **ordenamos según los valores más grandes**. Para los valores de *distancia Euclídea*, **ordenamos según los valores más pequeños**.
 
-Detalles a tener en cuenta son: no puede usarse a sí mismo como referencia ni tampoco puede usar a un vecino afín pero que no haya calificado ese elemento que buscamos predecir.
+Otros detalles a tener en cuenta son: el recomendador no puede user al propio usuario como referencia ni tampoco puede usar a un vecino afín pero que no haya calificado ese elemento que buscamos predecir.
 
 Así pues, devolvemos en formato de vector de pares a los usuarios más afines que hayan calificado el elemento junto a su valor.
 ![](/capturas/calcularVecinos.png)
