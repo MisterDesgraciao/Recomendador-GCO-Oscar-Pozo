@@ -23,11 +23,11 @@ Un ejemplo de ejecución del programa es el siguiente:
 Un ejemplo de ejecución es el siguiente:
 `./bin/RecomendadorEXE Random Coseno 3 Simple`
 
-`
-Argumentos de ejecución: Random Coseno 3 Simple
+`Argumentos de ejecución: Random Coseno 3 Simple
 Fichero seleccionado al azar: ./ejemplos/utility-matrix-10-25-6.txt
 
-Matriz ratings original: 
+Matriz ratings original:
+
 2 5 3 2 1 3 3 2 3 5 2 - 0 5 1 - 2 1 1 4 0 5 4 4 0 
 2 4 3 1 0 2 3 5 2 5 3 1 0 4 1 3 0 2 1 2 5 1 5 2 0 
 1 0 3 5 4 1 - 0 4 4 2 4 5 3 4 4 5 1 3 3 2 4 5 3 5 
@@ -39,7 +39,8 @@ Matriz ratings original:
 3 4 5 0 4 1 0 1 4 2 1 2 3 0 4 4 2 2 0 4 1 4 0 5 5 
 3 1 4 2 5 3 2 3 1 2 3 0 0 0 2 4 1 1 5 4 3 3 0 4 1 
 
-Matriz ratings similitudes: 
+Matriz ratings similitudes:
+
 1 0.999031 0.997991 0.998514 0.998114 0.997492 0.998611 0.998026 0.998387 0.998571 
 0.999031 1 0.998222 0.999076 0.998364 0.997865 0.998762 0.998508 0.998477 0.998957 
 0.997991 0.998222 1 0.998505 0.998426 0.997517 0.998348 0.998778 0.999019 0.998613 
@@ -51,7 +52,8 @@ Matriz ratings similitudes:
 0.998387 0.998477 0.999019 0.998681 0.998372 0.998175 0.998226 0.998657 1 0.99917 
 0.998571 0.998957 0.998613 0.998824 0.998796 0.998119 0.998542 0.998698 0.99917 1 
 
-Matriz con las predicciones realizadas: 
+Matriz con las predicciones realizadas:
+
 2 5 3 2 1 3 3 2 3 5 2 1 0 5 1 3 2 1 1 4 0 5 4 4 0 
 2 4 3 1 0 2 3 5 2 5 3 1 0 4 1 3 0 2 1 2 5 1 5 2 0 
 1 0 3 5 4 1 1 0 4 4 2 4 5 3 4 4 5 1 3 3 2 4 5 3 5 
@@ -61,15 +63,14 @@ Matriz con las predicciones realizadas:
 4 4 2 4 5 1 2 5 3 3 3 4 0 5 1 2 3 1 2 1 5 3 2 1 4 
 0 3 1 2 1 2 2 0 3 0 4 3 3 3 3 2 5 1 2 0 5 4 1 3 5 
 3 4 5 0 4 1 0 1 4 2 1 2 3 0 4 4 2 2 0 4 1 4 0 5 5 
-3 1 4 2 5 3 2 3 1 2 3 0 0 0 2 4 1 1 5 4 3 3 0 4 1
-`
+3 1 4 2 5 3 2 3 1 2 3 0 0 0 2 4 1 1 5 4 3 3 0 4 1`
 
 Como se puede apreciar, en este ejemplo se ha usado el selector aleatorio.
 
 
 # Implementación del código
 ## Lectura de los argumentos
-Lo primero que realiza el programa es la lectura de los argumentos pasados en la ejecución. Los imprimer por pantalla y los manda a comprobar con la función `comprobarArgumento()`. Además si hemos introducido `Random` como opción en vez del nombre de un fichero, se llamará a `seleccionarMatrizAleatoria()` para elegir un fichero sobre el que predecir.
+Lo primero que realiza el programa es la lectura de los argumentos pasados en la ejecución. Los imprime por pantalla y los manda a comprobar con la función `comprobarArgumentos()`. Además si hemos introducido `Random` como opción en vez del nombre de un fichero, se llamará a `seleccionarMatrizAleatoria()` para elegir un fichero sobre el que predecir.
 ![](/capturas/main1.png)
 
 En esta función simplemente comprobamos que los valores adjuntados en la ejecución son los esperados. Si alguno no lo es, abortamos la ejecución y notificamos el fallo por consola.
@@ -93,7 +94,7 @@ Después imprime por pantalla esos valores de similitud calculados.
 La función `calcularSimilitudes()` recibe la matriz de calificaciones, la `matrizSimilitudes` como *referencia* y el `metodo` para calcular la similitud. Dependiendo de este último valor, se calcula el valor de similitud de cada usuario con el resto usando `correlacionPearson()`, `distanciaCoseno()` o `distanciaEuclidea()`.
 ![](/capturas/calcularSimilitudes.png)
 
-Estas tres funciones son una traducción directa de la fórmula, que se puede encontrar en el PDF o Internet, de cada método a código. No creo que haga falta explicar el código, pues creo que se lee bastante bien.
+Estas tres funciones son una traducción directa de la fórmula, que se puede encontrar en el PDF o Internet, de cada método a código.
 ![](/capturas/correlacionPearson.png)
 ![](/capturas/formula%20Pearson.png)
 
@@ -120,7 +121,7 @@ Detalles a tener en cuenta son: no puede usarse a sí mismo como referencia ni t
 Así pues, devolvemos en formato de vector de pares a los usuarios más afines que hayan calificado el elemento junto a su valor.
 ![](/capturas/calcularVecinos.png)
 
-Por último, las funciones `prediccionSimple()` y `prediccionDiferenciaMedia()` son traducciones a código de las fórmulas de los apuntes de clase, así que aporta su fórmula y capturas porque creo que se entienden bien. Su cometido es calcular la predicción del usuario sobre el item en base a los vecinos más afines. Este valor lo devuelve como *char*.
+Por último, las funciones `prediccionSimple()` y `prediccionDiferenciaMedia()` son traducciones a código de las fórmulas de los apuntes de clase. Su cometido es calcular la predicción del usuario sobre el item en base a los vecinos más afines. Este valor lo devuelve como *char*.
 ![](/capturas/prediccionSimple.png)
 ![](/capturas/formula%20prediccion%20simple.png)
 
