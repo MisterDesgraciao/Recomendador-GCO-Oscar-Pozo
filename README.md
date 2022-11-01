@@ -23,11 +23,10 @@ Un ejemplo de ejecución del programa es el siguiente:
 Un ejemplo de ejecución es el siguiente:
 `./bin/RecomendadorEXE Random Coseno 3 Simple`
 
-`Argumentos de ejecución: Random Coseno 3 Simple
-Fichero seleccionado al azar: ./ejemplos/utility-matrix-10-25-6.txt
+Argumentos de ejecución: `Random Coseno 3 Simple`
+Fichero seleccionado al azar: `./ejemplos/utility-matrix-10-25-6.txt`
 
 Matriz ratings original:
-
 2 5 3 2 1 3 3 2 3 5 2 - 0 5 1 - 2 1 1 4 0 5 4 4 0 
 2 4 3 1 0 2 3 5 2 5 3 1 0 4 1 3 0 2 1 2 5 1 5 2 0 
 1 0 3 5 4 1 - 0 4 4 2 4 5 3 4 4 5 1 3 3 2 4 5 3 5 
@@ -40,7 +39,6 @@ Matriz ratings original:
 3 1 4 2 5 3 2 3 1 2 3 0 0 0 2 4 1 1 5 4 3 3 0 4 1 
 
 Matriz ratings similitudes:
-
 1 0.999031 0.997991 0.998514 0.998114 0.997492 0.998611 0.998026 0.998387 0.998571 
 0.999031 1 0.998222 0.999076 0.998364 0.997865 0.998762 0.998508 0.998477 0.998957 
 0.997991 0.998222 1 0.998505 0.998426 0.997517 0.998348 0.998778 0.999019 0.998613 
@@ -53,7 +51,6 @@ Matriz ratings similitudes:
 0.998571 0.998957 0.998613 0.998824 0.998796 0.998119 0.998542 0.998698 0.99917 1 
 
 Matriz con las predicciones realizadas:
-
 2 5 3 2 1 3 3 2 3 5 2 1 0 5 1 3 2 1 1 4 0 5 4 4 0 
 2 4 3 1 0 2 3 5 2 5 3 1 0 4 1 3 0 2 1 2 5 1 5 2 0 
 1 0 3 5 4 1 1 0 4 4 2 4 5 3 4 4 5 1 3 3 2 4 5 3 5 
@@ -63,9 +60,9 @@ Matriz con las predicciones realizadas:
 4 4 2 4 5 1 2 5 3 3 3 4 0 5 1 2 3 1 2 1 5 3 2 1 4 
 0 3 1 2 1 2 2 0 3 0 4 3 3 3 3 2 5 1 2 0 5 4 1 3 5 
 3 4 5 0 4 1 0 1 4 2 1 2 3 0 4 4 2 2 0 4 1 4 0 5 5 
-3 1 4 2 5 3 2 3 1 2 3 0 0 0 2 4 1 1 5 4 3 3 0 4 1`
+3 1 4 2 5 3 2 3 1 2 3 0 0 0 2 4 1 1 5 4 3 3 0 4 1
 
-Como se puede apreciar, en este ejemplo se ha usado el selector aleatorio.
+Como se puede apreciar, en este ejemplo se ha usado el selector aleatorio. Para más ejemplos, consultar el PDF adjunto en el repositorio.
 
 
 # Implementación del código
