@@ -19,6 +19,7 @@
 #include <vector>
 #include <utility>  // std::pair
 
+
 void imprimirMatriz(std::vector<std::vector<char>> matrix) {
   for (int i = 0; i < matrix.size(); i++) {
     for (int j = 0; j < matrix[0].size(); j++) {
@@ -220,14 +221,10 @@ int prediccionSimple(std::vector<std::vector<char>> matriz, int coordenadaX, int
   float numerador = 0, denominador = 0;
   for (int i = 0; i < userConSuSimilitud.size(); i++) {
     float valorSimilitud = userConSuSimilitud[i].second;
-    //std::cout << "[" << userConSuSimilitud[i].first << "," << coordenadaY << "]" << std::endl;
     float calificacionVecinoAlItem = matriz[userConSuSimilitud[i].first][coordenadaY] - '0';  // El -'0' es necesario para que lo reciba correctamente como número
-    //std::cout << "Multiplicación: " << valorSimilitud << " * " << calificacionVecinoAlItem << std::endl;
     numerador = numerador + (valorSimilitud * calificacionVecinoAlItem);
-    //std::cout << "Numerador " << numerador << std::endl;
     denominador += std::abs(valorSimilitud);
   }
-  //std::cout << numerador << " / " << denominador << std::endl;
   int resultado = (numerador / denominador);
   char resultadoChar = resultado + '0';
   return resultadoChar;
@@ -308,17 +305,21 @@ int main(int argc, char* argv[]) {
   }
 
   std::vector<std::vector<char>> matrizRatings = readFromFile(fichero);
+
   std::vector<int> usuariosConPrediccion = calcularPredicciones(matrizRatings);
+  
   std::cout << "\nMatriz ratings original: " << std::endl;
   imprimirMatriz(matrizRatings);
 
   std::vector<std::vector<float>> matrizSimilitudes = crearMatrizSimilitudes(matrizRatings);
 
   calcularSimilitudes(matrizRatings, matrizSimilitudes, metrica);
+
   std::cout << "Matriz ratings similitudes: " << std::endl;
   imprimirMatriz(matrizSimilitudes);
 
   std::vector<std::vector<char>> matrizFinal = ejecutar(matrizRatings, matrizSimilitudes, vecinos, metrica, usuariosConPrediccion, prediccion);
+  
   std::cout << "Matriz con las predicciones realizadas: " << std::endl;
   imprimirMatriz(matrizFinal);
 }
